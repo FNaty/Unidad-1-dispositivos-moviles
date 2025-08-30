@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica 1</title>
+</head>
+<body>
+    <h4>Ejemplo 1: Seleccion de elementos del DOM</h4>
+    <div id="myDiv" class="myClass">Hello, World!</div>
+    <button id="changeText">Change Text</button>
+    <script>
+        // Seleccionar un elemento por ID
+        const myDiv = document.getElementById('myDiv');
+        document.write("myDiv");
+        document.write(myDiv);
+        // Seleccionar elementos por clase
+        const elementsByClass = document.getElementsByClassName('myClass');
+        document.write("elementsByClass");
+        document.write(elementsByClass);
+        // Seleccionar elementos por etiqueta
+        const elementsByTag = document.getElementsByTagName('div');
+        document.write("elementsByTag");
+        document.write(elementsByTag);
+        // Seleccionar un elemento con queryselector
+        const queryElement = document.querySelector('#myDiv');
+        document.write("queryElement");
+        document.write(queryElement);
+        // Seleccionar todos los elementos con queryselectorAll
+        const queryAllElements = document.querySelectorAll('div');
+        document.write("queryAllElements");
+        document.write(queryAllElements);
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 3</title>
+</head>
+<body>
+    <h4>Ejemplo 3: Eventos del DOM</h4>
+    <div id="myDiv">Click me!</div>
+
+    <script>
+        const myDiv = document.getElementById("myDiv");
+
+        // Manejar el evento click
+        myDiv.addEventListener("click", () =>{
+            alert("Div clicked!");
+            myDiv.style.backgroundColor = "lightblue";
+        });
+
+        // Manejar el evento mouseover
+        myDiv.addEventListener("mouseover", () =>{
+            myDiv.style.backgroundColor = "yellow";
+        });
+
+        // Manejar el evento mouseout
+        myDiv.addEventListener("mouseout", () =>{
+            myDiv.style.backgroundColor = '';
+        });
+    </script>
+</body>
+</html>
