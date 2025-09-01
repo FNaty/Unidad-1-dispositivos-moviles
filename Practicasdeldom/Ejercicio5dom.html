@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 5 DOM</title>
+    <style>
+        .resaltado {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .hovered {
+            background-color: #a2d5f2;
+        }
+        .lista-estilo {
+            color: green;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1 id="titulo">Bienvenido a mi página</h1>
+    <p id="parrafo">Este es un ejemplo básico de una página HTML con varios elementos.</p>
+    <ul id="miLista">
+        <li class="item-lista">Elemento 1</li>
+        <li class="item-lista">Elemento 2</li>
+        <li class="item-lista">Elemento 3</li>
+    </ul>
+    <button id="miBoton">Haz clic aquí</button>
+    <br><br>
+    <button id="btnCambiarEncabezado">Cambiar Encabezado</button>
+    <button id="btnCambiarParrafo">Cambiar Párrafo</button>
+    <button id="btnEstiloLista">Cambiar Estilo Lista</button>
+    <button id="btnResaltarLista">Resaltar Lista</button>
+    <button id="btnQuitarResaltado">Quitar Resaltado</button>
+
+    <script>
+        document.getElementById('titulo').textContent = 'Título cambiado con getElementById';
+        document.getElementById('parrafo').textContent = 'Párrafo cambiado usando getElementById.';
+
+        const items = document.getElementsByClassName('item-lista');
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.add('lista-estilo');
+        }
+
+        
+        const boton = document.querySelector('#miBoton');
+        boton.addEventListener('click', () => {
+            const encabezado = document.getElementsByTagName('h1')[0];
+            encabezado.textContent = '¡El encabezado ha cambiado por el botón!';
+        });
+
+        const liElements = document.getElementsByTagName('li');
+        for (let i = 0; i < liElements.length; i++) {
+            liElements[i].addEventListener('mouseover', function() {
+                this.classList.add('hovered');
+            });
+            liElements[i].addEventListener('mouseout', function() {
+                this.classList.remove('hovered');
+            });
+        }
+
+        document.getElementById('btnCambiarEncabezado').onclick = function() {
+            document.getElementById('titulo').textContent = 'Encabezado cambiado con el botón extra';
+        };
+
+        document.getElementById('btnCambiarParrafo').onclick = function() {
+            document.getElementById('parrafo').textContent = 'Este párrafo fue cambiado con el botón extra.';
+        };
+
+        document.getElementById('btnEstiloLista').onclick = function() {
+            for (let i = 0; i < items.length; i++) {
+                items[i].classList.toggle('lista-estilo');
+            }
+        };
+
+ 
+        document.getElementById('btnResaltarLista').onclick = function() {
+            listaItems.forEach(item => item.classList.add('resaltado'));
+        };
+        
+        document.getElementById('btnQuitarResaltado').onclick = function() {
+            listaItems.forEach(item => item.classList.remove('resaltado'));
+        };
+    </script>
 </body>
 </html>
