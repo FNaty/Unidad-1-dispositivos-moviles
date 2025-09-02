@@ -74,8 +74,7 @@
                 items[i].classList.toggle('lista-estilo');
             }
         };
-
- 
+        const listaItems = document.querySelectorAll('.item-lista');
         document.getElementById('btnResaltarLista').onclick = function() {
             listaItems.forEach(item => item.classList.add('resaltado'));
         };

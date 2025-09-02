@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1: Suma de dos números</title>
+    <title>Ejercicio 2: División de dos números</title>
 </head>
 <body>
-    <h1>Ejercicio 1: Suma de dos números</h1>
+    <h1>Ejercicio 2: División de dos números</h1>
     <form id="sumForm">
         <input type="number" id="num1" placeholder="Número 1" required>
         <input type="number" id="num2" placeholder="Número 2" required>
@@ -16,28 +16,27 @@
     <br>
     <li><a href="/index.html">Volver a página de inicio</a></li>
     <script>
-        // funcion tradicional
-        function sumarTradicional(a, b) {
-            return a + b;
+        // Funcion tradicional
+        function dividirTradicional(a, b) {
+            if (b === 0) return 'Error division por cero';
+            return a / b;
         }
-
-        // funcion flecha
-        const sumarFlecha = (a, b) => a + b;
+        // Funcion flecha
+        const dividirFlecha = (a, b) => b === 0 ? 'Error division por cero' : a / b;
 
         document.getElementById('sumForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const num1 = parseFloat(document.getElementById('num1').value);
             const num2 = parseFloat(document.getElementById('num2').value);
 
-            // mostrar el resultado con las dos formas 
-            const sumaTradicional = sumarTradicional(num1, num2);
-            const sumaFlecha = sumarFlecha(num1, num2);
+            // mostrar el resultado con las dos formas
+            const divisionTradicional = dividirTradicional(num1, num2);
+            const divisionFlecha = dividirFlecha(num1, num2);
 
             document.getElementById('result').innerHTML =
-                'La suma (función tradicional) es: ' + sumaTradicional + '<br>' +
-                'La suma (función flecha) es: ' + sumaFlecha;
+                'La división (función tradicional) es: ' + divisionTradicional + '<br>' +
+                'La división (función flecha) es: ' + divisionFlecha;
         });
-    </script>
     </script>
 </body>
 </html>
