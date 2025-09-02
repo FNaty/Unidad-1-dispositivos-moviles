@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <h1>Ejercicio 5: Función que toma otra función como parámetro</h1>
+    <form id="operationForm">
+        <input type="number" id="num1" placeholder="Número 1" required>
+        <input type="number" id="num2" placeholder="Número 2" required>
+        <select id="operation" required>
+            <option value="" disabled selected>Selecciona una operación</option>
+            <option value="sumar">Sumar</option>
+            <option value="multiplicar">Multiplicar</option>
+            <option value="restar">Restar</option>
+            <option value="dividir">Dividir</option>
+        </select>
+        <button type="submit">Ejecutar</button>
+    </form>
+    <p id="result"></p>
+    <br>
+    <li><a href="/index.html">Volver a página de inicio</a></li>
+    <li><a href="/Ejercicios.html">Volver a ejercicios</a></li>
+    <script>
+        function ejecutarOperacion(a, b, operacion) {
+            return operacion(a, b);
+        }
+        //funciones de ejemplo
+        const sumar = (a,b) => a + b;
+        const multiplicar = (a,b) => a * b;
+        const restar = (a,b) => a - b;
+        const dividir = (a,b) => a / b;
+        //para mostrar los resultados
+        document.getElementById('operationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operacion = document.getElementById('operation').value;
+
+            let resultado;
+            if (operacion === 'sumar') {
+                resultado = ejecutarOperacion(num1, num2, sumar);
+            } else if (operacion === 'multiplicar') {
+                resultado = ejecutarOperacion(num1, num2, multiplicar);
+            }
+
+            document.getElementById('result').innerHTML = 'El resultado es: ' + resultado;
+        });
+    </script>
+</body>
+</html>

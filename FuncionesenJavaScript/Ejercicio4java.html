@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 4: Mayor de 2 números</title>
 </head>
 <body>
-    
+    <h1>Ejercicio 4: Mayor de 2 números</h1>
+    <form id="maxForm">
+        <input type="number" id="num1" placeholder="Número 1" required>
+        <input type="number" id="num2" placeholder="Número 2" required>
+        <button type="submit">Calcular</button>
+    </form>
+    <p id="result"></p>
+    <br>
+    <li><a href="/index.html">Volver a página de inicio</a></li>
+    <li><a href="/Ejercicios.html">Volver a ejercicios</a></li>
+    <script>
+        function mayorTradicional(a, b) {
+            return a > b ? a : b;
+        }
+        const mayorFlecha = (a, b) => a > b ? a : b;
+
+        document.getElementById('maxForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            // mostrar el resultado con las dos formas
+            const resultadoTradicional = mayorTradicional(num1, num2);
+            const resultadoFlecha = mayorFlecha(num1, num2);
+
+            document.getElementById('result').innerHTML =
+                'El mayor (función tradicional) es: ' + resultadoTradicional + '<br>' +
+                'El mayor (función flecha) es: ' + resultadoFlecha;
+        });
+    </script>
 </body>
 </html>

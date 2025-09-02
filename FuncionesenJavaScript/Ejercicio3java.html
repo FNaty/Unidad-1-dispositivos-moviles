@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 3: Potencia de un número</title>
 </head>
 <body>
-    
+    <h1>Ejercicio 3: Potencia de un número</h1>
+    <form id="powerForm">
+        <input type="number" id="base" placeholder="Base" required>
+        <input type="number" id="exponent" placeholder="Exponente" required>
+        <button type="submit">Calcular</button>
+    </form>
+    <p id="result"></p>
+    <br>
+    <li><a href="/index.html">Volver a página de inicio</a></li>
+    <li><a href="/Ejercicios.html">Volver a ejercicios</a></li>
+    <script>
+        // Funcion tradicional
+        function potenciaTradicional(base, exponente) {
+            return Math.pow(base, exponente);
+        }
+        // Funcion flecha
+        const potenciaFlecha = (base, exponente) => Math.pow(base, exponente);
+
+        document.getElementById('powerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const base = parseFloat(document.getElementById('base').value);
+            const exponente = parseFloat(document.getElementById('exponent').value);
+
+            // mostrar el resultado con las dos formas
+            const resultadoTradicional = potenciaTradicional(base, exponente);
+            const resultadoFlecha = potenciaFlecha(base, exponente);
+
+            document.getElementById('result').innerHTML =
+                'La potencia (función tradicional) es: ' + resultadoTradicional + '<br>' +
+                'La potencia (función flecha) es: ' + resultadoFlecha;
+        });
+    </script>
 </body>
 </html>
