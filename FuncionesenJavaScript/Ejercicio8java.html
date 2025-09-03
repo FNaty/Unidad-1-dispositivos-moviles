@@ -7,17 +7,40 @@
 </head>
 <body>
     <h1>Ejercicio 8: Función de orden superior que retorna otra función</h1>
+    
+    <label for="nombreInput">Ingresa tu nombre:</label>
+    <input type="text" id="nombreInput" placeholder="Nombre">
+    <button id="btnHola">Saludar en Español</button>
+    <button id="btnHello">Saludar en Inglés</button>
+    <button id="btnBonjour">Saludar en Francés</button>
+    <p id="resultado"></p>
+
     <br>
     <li><a href="/index.html">Volver a página de inicio</a></li>
     <li><a href="/Ejercicios.html">Volver a ejercicios</a></li>
     <script>
         function crearSaludo(saludo){
             return function(nombre){
-                return $(saludo) + ', ' + $(nombre) + '!';
+                return saludo + ', ' + nombre + '!';
             }
         }
         const saludarHola = crearSaludo('Hola');
         const saludarHello = crearSaludo('Hello');
+        //saludo que agregue 
+        const saludarBonjour = crearSaludo('Bonjour');
+
+        document.getElementById('btnBonjour').onclick = function() {
+            const nombre = document.getElementById('nombreInput').value;
+            document.getElementById('resultado').textContent = saludarBonjour(nombre);
+        };
+        document.getElementById('btnHola').onclick = function() {
+            const nombre = document.getElementById('nombreInput').value;
+            document.getElementById('resultado').textContent = saludarHola(nombre);
+        };
+        document.getElementById('btnHello').onclick = function() {
+            const nombre = document.getElementById('nombreInput').value;
+            document.getElementById('resultado').textContent = saludarHello(nombre);
+        };
     </script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo: Juego de adivinar</title>
+</head>
+<body>
+    <h1>Ejemplo: Juego de adivinar</h1>
+    <br>
+    <li><a href="/index.html">Volver a página de inicio</a></li>
+    <li><a href="/Ejercicios.html">Volver a ejercicios</a></li>
+    <script>
+        function crearGeneradorNumeroAleatorio(min, max) {
+            return function() {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+        }
+        //crear funcion de adivinanza
+        function crearjuegoAdivinarNumero(generadorNumero){
+            const numeroAleatorio = generadorNumero();
+            let intentos = 0;
+            return function(adivina){
+                intentos+=1;
+                if(adivina < numeroAleatorio){
+                    return `El número es mayor. Intentos: ${intentos}`;
+                } else if(adivina > numeroAleatorio){
+                    return `El número es menor. Intentos: ${intentos}`;
+                } else {
+                    return `¡Felicidades! Adivinaste el número en ${intentos} intentos.`;
+                }
+            }
+        }
+        function iniciarjuego(){
+            const rangoMin = parseInt(prompt("Ingrese el valor mínimo del rango:"));
+            const rangoMax = parseInt(prompt("Ingrese el valor máximo del rango:"));
+            const generadorNumero = crearGeneradorNumeroAleatorio(rangoMin, rangoMax);
+            let juego =crearjuegoAdivinarNumero(generadorNumero);
+            let resultado;
+            do{
+                const adivina = parse
+            }
+        }
+    </script>
+</body>
+</html>
