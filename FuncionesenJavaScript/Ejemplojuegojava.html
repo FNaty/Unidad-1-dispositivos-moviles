@@ -8,8 +8,8 @@
 <body>
     <h1>Ejemplo: Juego de adivinar</h1>
     <br>
-    <li><a href="/index.html">Volver a página de inicio</a></li>
-    <li><a href="/Ejercicios.html">Volver a ejercicios</a></li>
+    <li><a href="../index.html">Volver a página de inicio</a></li>
+    <li><a href="../Ejercicios.html">Volver a ejercicios</a></li>
     <script>
         function crearGeneradorNumeroAleatorio(min, max) {
             return function() {
@@ -39,6 +39,13 @@
             let resultado;
             do{
                 const adivina = parseInt(prompt("adivina el numero:"));
+                resultado = juego(adivina);
+                alert(resultado);
+            } while(!resultado.includes("¡Felicidades!"));
+            if(confirm("¿Deseas jugar de nuevo?")){
+                iniciarjuego();
+            } else {
+                alert("Gracias por jugar. ¡Hasta luego!");
             }
         }
     </script>
