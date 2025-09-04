@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrado de Arreglos de Objetos</title>
+</head>
+<body>
+    <h1>Filtrado de Arreglos</h1>
+    <br>
+    <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
+    <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <script>
+        function filtrarUsuarios(arr){
+            return arr.filter(usuario => usuario.edad > 27);
+        }
+        console.log(filtrarUsuarios([{nombre:"Luis",edad:30},{nombre:"Maria",edad:28}]));
+    </script>
+</body>
+</html>
