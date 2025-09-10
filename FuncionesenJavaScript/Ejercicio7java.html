@@ -8,8 +8,12 @@
 </head>
 <body>
     <h1>Ejercicio 7: Closure para contar</h1>
-    <p>Para comprobar este ejercicio por favor inspeccionar la pagina y usar la consola del navegador.</p>
-    <p>y colocar : console.log(contador()); para subir el contador.</p>
+    <div class="contador-container">
+        <p>para ver como funciono el contador es en consola y tambien se puede</p>
+        <p>hacer clic en el botón para incrementar el contador:</p>
+        <div id="valorContador">0</div>
+        <button id="btnIncrementar">Incrementar contador</button>
+    </div>
     <br>
     <li><a href="../index.html">Volver a página de inicio</a></li>
     <li><a href="../Ejercicios.html">Volver a ejercicios</a></li>
@@ -21,10 +25,18 @@
                 return contador;
             };
         }
-
         const contador = crearContador();
 
-        // Ejemplo de uso
+        // Mostrar el valor inicial
+        document.getElementById('valorContador').textContent = 0;
+
+        // Al hacer clic, incrementar y mostrar el valor
+        document.getElementById('btnIncrementar').onclick = function() {
+            const valor = contador();
+            document.getElementById('valorContador').textContent = valor;
+        };
+
+        // Ejemplo de uso en consola (opcional, puedes dejarlo o quitarlo)
         console.log(contador()); // 1
         console.log(contador()); // 2
         console.log(contador()); // 3

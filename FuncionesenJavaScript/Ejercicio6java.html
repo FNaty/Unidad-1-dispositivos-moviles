@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 6</title>
     <link rel="stylesheet" href="../Ejercicios.css">
 </head>
+
 <body>
     <h1>Ejercicio 6: Función de orden superior con map</h1>
-    
+    <label for="arrayInput">Ingresa números separados por coma:</label>
+    <input type="text" id="arrayInput" placeholder="Ejemplo: 1,2,3,4">
+    <button id="btnDuplicar">Duplicar</button>
+    <div id="resultado"></div>
+
     <br>
     <li><a href="../index.html">Volver a página de inicio</a></li>
     <li><a href="../Ejercicios.html">Volver a ejercicios</a></li>
     <script>
-        function aplicarOperacionArray(arr,operacion){
+        function aplicarOperacionArray(arr, operacion) {
             return arr.map(operacion);
         }
         // funcion de ejemplo
         const duplicar = (x) => x * 2;
+
+        document.getElementById('btnDuplicar').onclick = function () {
+            const input = document.getElementById('arrayInput').value;
+            const arr = input.split(',').map(num => Number(num.trim())).filter(num => !isNaN(num));
+            const resultado = aplicarOperacionArray(arr, duplicar);
+            document.getElementById('resultado').textContent = "Resultado: [" + resultado.join(', ') + "]";
+        };
     </script>
 </body>
+
 </html>

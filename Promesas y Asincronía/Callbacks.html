@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
+</head>
+<body>
+    <h1>Ejemplo de Callback</h1>
+    <h4>Suma de 2 numeros</h4>
+    <br>
+    <li><a href="../PromesasAsincronía.html">volver a Promesas y Asincronía</a></li>
+    <li><a href="../index.html">volver a pagina de inicio</a></li>
+    <script>
+        // Definimos una dincion que realiza la suma
+        function sumar(a, b, callback) {
+            let resultado = a + b; //realiza la suma
+            callback(resultado); // llama al callback con el resultado
+        }
+        //Definimos un callback que maneja el resultado
+        function mostrarResultado(resultado) {
+            document.write("La suma es: " + resultado);
+        }
+        // llamamos a la funcion sumar y pasamos los numeros y el callback
+        sumar(5, 10, mostrarResultado);
+    </script>
+</body>
+</html>
