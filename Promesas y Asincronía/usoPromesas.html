@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uso de Promesas</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
 </head>
+
 <body>
     <h1>Ejemplo1: Estructura basica de una promesa</h1>
+    <form id="promesaForm">
+        <button type="submit">Ejecutar Promesa</button>
+    </form>
+    <div id="resultado" style="margin-top: 20px; font-weight: bold;"></div>
+    <br>
+    <li><a href="../PromesasAsincronía.html">volver a Promesas y Asincronía</a></li>
+    <li><a href="../index.html">volver a pagina de inicio</a></li>
+    <script>
+        document.getElementById('promesaForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = "Procesando...";
+
+            // crear una nueva promesa
+            const miPromesa = new Promise((resolve, reject) => {
+                // simular una operacion asincrona (por ejemplo una solicitud de red)
+                const exito = true; // cambia a false para simular un error
+                if (exito) {
+                    resolve("Operación exitosa"); // resuelve la promesa
+                } else {
+                    reject("Ocurrió un error"); // rechaza la promesa    
+                }
+            });
+
+            // usar la promesa
+            miPromesa
+                .then((resultado) => {
+                    resultadoDiv.textContent = resultado; // manejar el resultado si la promesa se resuelve
+                })
+                .catch((error) => {
+                    resultadoDiv.textContent = error; // manejar el error si la promesa es rechazada
+                });
+        });
+    </script>
 </body>
+
 </html>
