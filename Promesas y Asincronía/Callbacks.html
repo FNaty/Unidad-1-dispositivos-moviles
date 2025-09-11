@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Callbacks</title>
     <link rel="stylesheet" href="../Ejercicios.css">
 </head>
+
 <body>
     <h1>Ejemplo de Callback</h1>
     <h4>Suma de 2 numeros en este caso 5 y 10</h4>
     <img src="../imagenes/imagenCallback.png" alt="codigo callback" width="500">
+    <div>
+        <h3>Resultado de la suma:</h3>
+        <div id="resultadoSuma"></div>
+    </div>
+    <br>
+    <h4>Nombre y Edad</h4>
+    <img src="../imagenes/imagenCallback2.png" alt="codigo callback2" width="500">
+    <div>
+        <h3>Datos obtenidos:</h3>
+        <div id="resultadoDatos"></div>
+    </div>
     <br>
     <li><a href="../PromesasAsincronía.html">volver a Promesas y Asincronía</a></li>
     <li><a href="../index.html">volver a pagina de inicio</a></li>
     <script>
-        // Definimos una dincion que realiza la suma
+        // Definimos una funcion que realiza la suma
         function sumar(a, b, callback) {
             let resultado = a + b; //realiza la suma
             callback(resultado); // llama al callback con el resultado
         }
         //Definimos un callback que maneja el resultado
         function mostrarResultado(resultado) {
-            document.write("La suma es: " + resultado);
+            document.getElementById("resultadoSuma").textContent = "La suma es: " + resultado;
         }
         // llamamos a la funcion sumar y pasamos los numeros y el callback
         sumar(5, 10, mostrarResultado);
+
+        // definimos una funcion que simula una operacion asincrona
+        function obtenerDatos(callback) {
+            setTimeout(() => {
+                const datos = { nombre: "Juan", edad: 30 };
+                callback(datos);
+            }, 2000); // simulamos un retraso de 2 segundos
+        }
+        //definimos un callback que maneja los datos
+        function mostrarDatos(datos) {
+            document.getElementById("resultadoDatos").innerHTML =
+                "Nombre: " + datos.nombre + "<br>Edad: " + datos.edad;
+        }
+        //llamamos a la funcion obtenerDatos y pasamos mostrarDatos como callback
+        obtenerDatos(mostrarDatos);
     </script>
 </body>
+
 </html>
