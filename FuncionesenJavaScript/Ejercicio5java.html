@@ -20,7 +20,7 @@
         </select>
         <button type="submit">Ejecutar</button>
     </form>
-    <p id="result"></p>
+    <p id="resultado"></p>
     <br>
     <li><a href="../index.html">Volver a página de inicio</a></li>
     <li><a href="../Ejercicios.html">Volver a ejercicios</a></li>
@@ -28,30 +28,39 @@
         function ejecutarOperacion(a, b, operacion) {
             return operacion(a, b);
         }
-        //funciones de ejemplo
+        // Funciones de ejemplo
         const sumar = (a,b) => a + b;
         const multiplicar = (a,b) => a * b;
-        //funciones que agregue yo
+        // Funciones que agregue yo
         const restar = (a,b) => a - b;
         const dividir = (a,b) => a / b;
-        //para mostrar los resultados
-        document.getElementById('operationForm').addEventListener('submit', function(event) {
+        // Para mostrar los resultados
+        document.getElementById('operacionForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const num1 = parseFloat(document.getElementById('num1').value);
             const num2 = parseFloat(document.getElementById('num2').value);
             const operacion = document.getElementById('operation').value;
             
             let resultado;
+            let textoOperacion = '';
             if (operacion === 'sumar') {
                 resultado = ejecutarOperacion(num1, num2, sumar);
+                textoOperacion = 'La suma de ' + num1 + ' y ' + num2 + ' es: ';
             } else if (operacion === 'multiplicar') {
                 resultado = ejecutarOperacion(num1, num2, multiplicar);
+                textoOperacion = 'La multiplicación de ' + num1 + ' y ' + num2 + ' es: ';
             } else if (operacion === 'restar') {
                 resultado = ejecutarOperacion(num1, num2, restar);
+                textoOperacion = 'La resta de ' + num1 + ' y ' + num2 + ' es: ';
             } else if (operacion === 'dividir') {
+                if (num2 === 0) {
+                    document.getElementById('resultado').innerHTML = 'No se puede dividir entre cero.';
+                    return;
+                }
                 resultado = ejecutarOperacion(num1, num2, dividir);
+                textoOperacion = 'La división de ' + num1 + ' entre ' + num2 + ' es: ';
             }
-            document.getElementById('result').innerHTML = 'El resultado es: ' + resultado;
+            document.getElementById('resultado').innerHTML = textoOperacion + resultado;
         });
     </script>
 </body>
