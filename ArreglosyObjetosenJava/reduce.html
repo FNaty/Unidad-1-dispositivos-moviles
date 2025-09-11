@@ -11,9 +11,13 @@
     <br>
     <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
     <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <p>Arreglo original: <span id="arreglo"></span></p>
+    <p>Suma usando reduce: <span id="resultado"></span></p>
     <script>
         const numeros = [1, 2, 3, 4, 5];
+        document.getElementById('arreglo').textContent = numeros.join(', ');
         const suma = numeros.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
+        document.getElementById('resultado').textContent = suma;
         console.log(suma);
     </script>
 </body>

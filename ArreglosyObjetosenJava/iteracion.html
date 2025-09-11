@@ -11,10 +11,15 @@
     <br>
     <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
     <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <h2>Frutas en el arreglo:</h2>
+    <ul id="lista-frutas"></ul>
     <script>
         const frutas = ["manzana", "banana", "naranja", "uva"];
+        const lista = document.getElementById('lista-frutas');
         for (let i = 0; i < frutas.length; i++) {
-            console.log(`Fruta en el índice ${i}: ${frutas[i]}`);
+            const item = document.createElement('li');
+            item.textContent = `Fruta en el índice ${i}: ${frutas[i]}`;
+            lista.appendChild(item);
         }
     </script>
 </body>

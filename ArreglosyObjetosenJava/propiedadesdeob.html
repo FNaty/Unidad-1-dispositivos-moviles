@@ -11,15 +11,21 @@
     <br>
     <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
     <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <h2>Propiedades del objeto persona</h2>
+    <ul>
+        <li id="nombre"></li>
+        <li id="edad"></li>
+        <li id="profesion"></li>
+    </ul>
     <script>
         const persona = {
             nombre: "Juan",
             edad: 30,
             ciudad: "Madrid"
         };
-        console.log(`Nombre: ${persona.nombre}`);
-        console.log(`Edad: ${persona.edad}`);
-        console.log(`Profesión: ${persona.profesion}`);
+        document.getElementById('nombre').textContent = `Nombre: ${persona.nombre}`;
+        document.getElementById('edad').textContent = `Edad: ${persona.edad}`;
+        document.getElementById('profesion').textContent = `Profesión: ${persona.profesion ?? "No definida"}`;
     </script>
 </body>
 </html>

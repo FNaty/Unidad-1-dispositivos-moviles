@@ -11,12 +11,24 @@
     <br>
     <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
     <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <h2>Nombres de usuarios</h2>
+    <ul id="lista-nombres"></ul>
     <script>
-        const usuarios= [{nombre:"Ana",edad:25},{nombre:"Luis",edad:30},{nombre:"Maria",edad:28}];
-        function obtenerNombres(arr){
-            return arr.map(usuario=>usuario.nombre);
+        const usuarios = [
+            { nombre: "Ana", edad: 25 },
+            { nombre: "Luis", edad: 30 },
+            { nombre: "Maria", edad: 28 }
+        ];
+        function obtenerNombres(arr) {
+            return arr.map(usuario => usuario.nombre);
         }
-        console.log(obtenerNombres(usuarios));
+        const nombres = obtenerNombres(usuarios);
+        const lista = document.getElementById('lista-nombres');
+        nombres.forEach(nombre => {
+            const li = document.createElement('li');
+            li.textContent = nombre;
+            lista.appendChild(li);
+        });
     </script>
 </body>
 </html>
