@@ -8,15 +8,13 @@
 </head>
 <body>
     <h1>Agrupacion por Propiedad</h1>
+    <h2>Productos</h2>
+    <ul id="lista-productos"></ul>
+    <h2>Productos agrupados por categoría</h2>
+    <div id="agrupados"></div>
     <br>
     <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
     <li><a href="../index.html">Volver a la pagina de inicio</a></li>
-    <h2>Productos</h2>
-    <ul id="lista-productos"></ul>
-
-    <h2>Productos agrupados por categoría</h2>
-    <div id="agrupados"></div>
-
     <script>
         function agruparPorCategoria(arr){
             return arr.reduce((grupo, producto) =>{

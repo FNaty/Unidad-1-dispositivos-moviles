@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>Ejercicio: Encontrar el Mayor Numero</h1>
-    <br>
-    <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
-    <li><a href="../index.html">Volver a la pagina de inicio</a></li>
     <h2>Arreglo de números:</h2>
     <p id="numeros"></p>
     <h2>Mayor número:</h2>
     <p id="mayor"></p>
+    <br>
+    <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
+    <li><a href="../index.html">Volver a la pagina de inicio</a></li>
     <script>
         function encontrarMayor(arr){
             return arr.reduce((max, num) => (num > max ? num : max), arr[0]);
