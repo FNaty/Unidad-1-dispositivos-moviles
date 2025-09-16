@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia en POO</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
+</head>
+<body>
+    <h2>Herencia</h2>
+    <li><a href="../POO.html">volver a Ejercicios de POO</a></li>
+    <li><a href="../index.html">volver a pagina de inicio</a></li>
+    <script>
+        // clase base
+        class Animal{
+            constructor(nombre, sonido){
+                this.nombre = nombre;
+                this.sonido = sonido;
+            }
+
+            hacerSonido(){
+                return `${this.nombre} hace ${this.sonido}`;
+            }
+        }
+        //clase derivada (subclase)
+        class Perro extends Animal{
+            constructor(nombre, raza){
+                super(nombre, 'guau'); // Llama al constructor de la clase base
+                this.raza = raza;
+            }
+
+            mostrarRaza(){
+                return `${this.nombre} es de la raza ${this.raza}`;
+            }
+        }
+        // Creacion de un objeto (instancia de la clase Perro)
+        const miPerro = new Perro("Max", "Labrador");
+        document.write("<br>" + miPerro.hacerSonido()); // max hace guau
+        document.write("<br>" + miPerro.mostrarRaza()); // max es un labrador
+    </script>
+</body>
+</html>

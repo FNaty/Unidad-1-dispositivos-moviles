@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases y Objetos</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
+</head>
+<body>
+    <h1>POO JavaScript</h1>
+    <h4>Clases y Objetos</h4>
+    <li><a href="../POO.html">volver a Ejercicios de POO</a></li>
+    <li><a href="../index.html">volver a pagina de inicio</a></li>
+    <Script>
+        // Definición de una clase
+        class Animal{
+            constructor(nombre, sonido){
+                this.nombre = nombre;
+                this.sonido = sonido;
+            }
+
+            hacerSonido(){
+                return `${this.nombre} hace ${this.sonido}`;
+            }
+        }
+        // Creacion de un objeto (instancia de la clase animal)
+        const perro = new Animal("Perro", "guau");
+        document.writeln("Salida: " + perro.hacerSonido());
+    </Script>
+</body>
+</html>

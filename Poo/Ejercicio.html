@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Vehiculo</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
+</head>
+<body>
+    <h1>Ejercicio Vehiculo</h1>
+    <li><a href="../POO.html">volver a Ejercicios de POO</a></li>
+    <li><a href="../index.html">volver a pagina de inicio</a></li>
+    <script>
+        class Vehiculo {
+            constructor(marca, modelo) {
+                this.marca = marca;
+                this.modelo = modelo;
+            }
+            mostrarInfo() {
+                return `Marca: ${this.marca}, Modelo: ${this.modelo}`;
+            }
+            encender() {
+                return `${this.marca} ${this.modelo} está encendido.`;
+            }
+        }
+
+        class Coche extends Vehiculo {
+            constructor(marca, modelo, puertas) {
+                super(marca, modelo);
+                this.puertas = puertas;
+            }
+            mostrarPuertas() {
+                return `Cantidad de puertas: ${this.puertas}`;
+            }
+            tocarBocina() {
+                return "El coche ha tocado la bocina: ¡Beep beep!";
+            }
+        }
+
+        class Moto extends Vehiculo {
+            constructor(marca, modelo, cilindrada) {
+                super(marca, modelo);
+                this.cilindrada = cilindrada;
+            }
+            mostrarCilindrada() {
+                return `Cilindrada: ${this.cilindrada} cc`;
+            }
+            hacerCaballito() {
+                return "La moto está haciendo un caballito.";
+            }
+        }
+
+        class Camion extends Vehiculo {
+            constructor(marca, modelo, capacidadCarga) {
+                super(marca, modelo);
+                this.capacidadCarga = capacidadCarga;
+            }
+            mostrarCapacidadCarga() {
+                return `Capacidad de carga: ${this.capacidadCarga} kg`;
+            }
+            descargar() {
+                return "El camión está descargando la mercancía.";
+            }
+        }
+
+        // Instancia de Vehiculo
+        const vehiculo = new Vehiculo("Toyota", "Corolla");
+        document.write(vehiculo.mostrarInfo() + "<br>");
+        document.write(vehiculo.encender() + "<br>");
+
+        // Instancia de Coche
+        const coche = new Coche("Ford", "Focus", 4);
+        document.write(coche.mostrarInfo() + "<br>");
+        document.write(coche.mostrarPuertas() + "<br>");
+        document.write(coche.tocarBocina() + "<br>");
+
+        // Instancia de Moto
+        const moto = new Moto("Honda", "CBR600", 600);
+        document.write(moto.mostrarInfo() + "<br>");
+        document.write(moto.mostrarCilindrada() + "<br>");
+        document.write(moto.hacerCaballito() + "<br>");
+
+        // Instancia de Camion
+        const camion = new Camion("Volvo", "FH", 18000);
+        document.write(camion.mostrarInfo() + "<br>");
+        document.write(camion.mostrarCapacidadCarga() + "<br>");
+        document.write(camion.descargar());
+    </script>
+</body>
+</html>

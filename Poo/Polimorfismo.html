@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polimorfismo</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
+</head>
+<body>
+    <h2>Polimorfismo</h2>
+    <li><a href="../POO.html">volver a Ejercicios de POO</a></li>
+    <li><a href="../index.html">volver a pagina de inicio</a></li>
+    <script>
+        class Animal{
+            constructor(nombre, sonido){
+                this.nombre = nombre;
+                this.sonido = sonido;
+            }
+
+            hacerSonido(){
+                return `${this.nombre} hace ${this.sonido}`;
+            }
+        }
+        class Perro extends Animal{
+            constructor(nombre, raza){
+                super(nombre, 'guau'); 
+                this.raza = raza;
+            }
+            hacerSonido(){ 
+                return `${this.nombre} ladra: ${this.sonido}`;
+            }
+        }
+        class Gato extends Animal{
+            constructor(nombre){
+                super(nombre, 'miau'); 
+            }
+            hacerSonido(){ 
+                return `${this.nombre} maulla: ${this.sonido}`;
+            }
+        }
+        const animales = [new Perro("Max", "Labrador"), new Gato("Luna")];
+        // Recolectar los sonidos en un solo string
+        let salida = '';
+        animales.forEach(animal => {
+            salida += animal.hacerSonido() + '<br>';
+        });
+        // mostrar el resultado en el documento
+        document.write(salida);
+        // Max ladra: guau
+        // Luna maulla: miau
+    </script>
+</body>
+</html>
