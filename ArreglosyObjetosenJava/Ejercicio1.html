@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio Personal 1</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
 </head>
 <body>
-    
+    <h1>Ejercicio Personal 1</h1>
+    <p>Ingresa números separados por coma:</p>
+    <input type="text" id="arrayInput" placeholder="Ejemplo: 1,2,3,4">
+    <button id="btnEnviar">Enviar</button>
+    <div id="resultado"></div>
+    <br>
+    <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
+    <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <script>
+        document.getElementById('btnEnviar').onclick = function() {
+            var input = document.getElementById('arrayInput').value;
+            var arr = input.split(',');
+            // map: sumar 1 a cada número
+            var sumados = arr.map(function(x) {
+                return Number(x) + 1;
+            });
+            // filter: solo números mayores a 5
+            var mayores = arr.filter(function(x) {
+                return Number(x) > 2;
+            });
+            // reduce: suma total
+            var suma = arr.reduce(function(acc, x) {
+                return acc + Number(x);
+            }, 0);
+
+            document.getElementById('resultado').innerHTML =
+                "Original: " + arr.join(', ') + "<br>" +
+                "Sumados (map): " + sumados.join(', ') + "<br>" +
+                "Mayores a 5 (filter): " + mayores.join(', ') + "<br>" +
+                "Suma total (reduce): " + suma;
+        };
+    </script>
 </body>
 </html>

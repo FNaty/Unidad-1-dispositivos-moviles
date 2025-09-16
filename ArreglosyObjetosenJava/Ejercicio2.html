@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio Personal 2</title>
+    <link rel="stylesheet" href="../Ejercicios.css">
 </head>
 <body>
-    
+    <h1>Ejercicio Personal 2</h1>
+    <p>Manipulación básica de objetos</p>
+    <button id="btnMostrar">Mostrar objeto</button>
+    <div id="resultado"></div>
+    <br>
+    <li><a href="../arreglosyobjetos.html">Volver a arreglos y objetos</a></li>
+    <li><a href="../index.html">Volver a la pagina de inicio</a></li>
+    <script>
+        function crearPersona(nombre, edad) {
+            return {
+                nombre: nombre,
+                edad: edad,
+                saludar: function() {
+                    return "Hola, soy " + this.nombre + " y tengo " + this.edad + " años.";
+                }
+            };
+        }
+
+        document.getElementById('btnMostrar').onclick = function() {
+            var persona = crearPersona("Fatima", 22);
+            var texto = "Nombre: " + persona.nombre + "<br>" +
+                        "Edad: " + persona.edad + "<br>" +
+                        "Saludo: " + persona.saludar();
+            document.getElementById('resultado').innerHTML = texto;
+        };
+    </script>
 </body>
 </html>

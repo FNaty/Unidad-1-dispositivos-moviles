@@ -8,8 +8,23 @@
 </head>
 <body>
     <h1>Ejercicio personal 1</h1>
+    <h2>Ejemplo de función tradicional</h2>
+    <p id="tradicional"></p>
+    <h2>Ejemplo de función flecha</h2>
+    <p id="flecha"></p>
     <br>
     <li><a href="../index.html">Volver a página de inicio</a></li>
     <li><a href="../Ejercicios.html">Volver a ejercicios</a></li>
+    <script>
+        // Función tradicional
+        function saludar(nombre) {
+            return "Hola, " + nombre + "!";
+        }
+        document.getElementById('tradicional').textContent = saludar("Juan");
+
+        // Función flecha
+        const sumar = (a, b) => a + b;
+        document.getElementById('flecha').textContent = "La suma de 5 + 3 es: " + sumar(5, 3);
+    </script>
 </body>
 </html>

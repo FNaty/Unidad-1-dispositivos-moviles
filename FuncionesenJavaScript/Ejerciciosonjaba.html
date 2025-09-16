@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio personal 2</title>
     <link rel="stylesheet" href="../Ejercicios.css">
 </head>
+
 <body>
     <h1>Ejercicio personal 2</h1>
+    <h2>Contador con Closure y función de orden superior</h2>
+    <button id="btnIncrementar">Incrementar</button>
+    <button id="btnMultiplicar">Multiplicar por 2</button>
+    <p id="resultado">Valor: 0</p>
     <br>
     <li><a href="../index.html">Volver a página de inicio</a></li>
     <li><a href="../Ejercicios.html">Volver a ejercicios</a></li>
+    <script>
+        // el contador con closure
+        function crearContador() {
+            let valor = 0;
+            return {
+                incrementar: function () { valor++; return valor; },
+                obtener: function () { return valor; },
+                aplicarOperacion: function (operacion) {
+                    valor = operacion(valor);
+                    return valor;
+                }
+            };
+        }
+
+        // funcion de orden superior
+        function multiplicarPorDos(x) {
+            return x * 2;
+        }
+
+        const contador = crearContador();
+
+        document.getElementById('btnIncrementar').onclick = function () {
+            document.getElementById('resultado').textContent = "Valor: " + contador.incrementar();
+        };
+
+        document.getElementById('btnMultiplicar').onclick = function () {
+            document.getElementById('resultado').textContent = "Valor: " + contador.aplicarOperacion(multiplicarPorDos);
+        };
+    </script>
 </body>
+
 </html>
