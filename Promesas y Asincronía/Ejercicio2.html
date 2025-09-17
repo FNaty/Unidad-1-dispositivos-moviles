@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uso de async/await</title>
+    <title>Ejercicio 2</title>
     <link rel="stylesheet" href="../Ejercicios.css">
 </head>
 <body>
-    <h1>Uso de async/await</h1>
-    <h4>Posts</h4>
+    <h1>Ejercicio 2</h1>
+    <h4>Obtener y mostrar títulos de posts usando async/await</h4>
     <ul id="posts">
-        
 
     </ul>
-    <img src="../imagenes/async.png" alt="concepto de async" width="400">
+    <img src="../imagenes/image2.png" alt="codigo async await" width="400">
     <br>
     <li><a href="../PromesasAsincronía.html">volver a Promesas y Asincronía</a></li>
     <li><a href="../index.html">volver a pagina de inicio</a></li>
     <script>
-        async function obtenerPostConAsyncAwait() {
-            try{
-                let response = await fetch('https://jsonplaceholder.typicode.com/posts');
-                if (!response.ok) {
-                    throw new Error('Error en la llamada a la API');
-                }
-                let posts = await response.json();
+        async function obtenerPosts() {
+            try {
+                let respuesta = await fetch('https://jsonplaceholder.typicode.com/posts');
+                let posts = await respuesta.json();
                 mostrarPosts(posts);
             } catch (error) {
                 console.log('Error:', error);
@@ -38,7 +34,7 @@
                 postsUl.appendChild(li);
             });
         }
-        obtenerPostConAsyncAwait();
+        obtenerPosts();
     </script>
 </body>
 </html>
